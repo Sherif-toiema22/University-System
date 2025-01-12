@@ -1,6 +1,6 @@
 package com.example.EduBridge.dao;
 
-import com.javacorner.admin.entity.Student;
+import com.example.EduBridge.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
