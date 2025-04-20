@@ -35,6 +35,13 @@ public class Student {
     @JoinColumn(name = "userId", referencedColumnName = "userId", nullable = false)
     private User user;
 
+    public Student(String firstName, String lastName, String level, User user) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.level = level;
+        this.user = user;
+    }
+
 
     @Override
     public boolean equals(Object o) {

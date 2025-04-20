@@ -2,6 +2,10 @@ package com.example.EduBridge.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -9,6 +13,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class User {
 
     @Id
@@ -36,6 +44,10 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Instructor instructor;
 
+    public User(String email, String password) {
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,10 +64,10 @@ public class User {
                 '}';
     }
 
-//    public void assignRoleToUser(Role role) {
-//        this.roles.add(role);
-//        role.getUsers().add(this);
-//    }
+    public void assignRoleToUser(Role role) {
+        this.roles.add(role);
+        role.getUsers().add(this);
+    }
 
     @Override
     public int hashCode() {
@@ -63,4 +75,7 @@ public class User {
     }
 
 
+
+//    public void setEmail(String mail) {
+//    }
 }

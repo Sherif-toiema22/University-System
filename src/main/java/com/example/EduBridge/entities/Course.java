@@ -41,7 +41,16 @@ public class Course {
     inverseJoinColumns = {@JoinColumn(name = "studentId")})
     private Set<Student> students = new HashSet<>();
 
+    public Course(String courseName, String courseDuration, String courseDescription, Instructor instructor) {
+        this.courseName = courseName;
+        this.courseDuration = courseDuration;
+        this.courseDescription = courseDescription;
+        this.instructor = instructor;
+    }
 
+    public Course() {
+
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -69,4 +78,8 @@ public class Course {
     }
 
 
+    public void assignStudentToCourse(Student student) {
+        this.students.add(student);
+        student.getCourses().add(this);
+    }
 }

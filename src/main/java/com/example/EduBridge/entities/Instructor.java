@@ -38,6 +38,13 @@ public class Instructor {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
 
+    public Instructor(String firstName, String lastName, String summary, User user) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.summary = summary;
+        this.user = user;
+    }
+
 
     @Override
     public boolean equals(Object o) {
